@@ -45,7 +45,7 @@ body.dark {
 }
 
 .toggle-switch{
-    border: 1px solid var(--primary);
+    border: 1px solid var(--dark);
     background: var(--light);
     height: 40px;
     width: 120px;

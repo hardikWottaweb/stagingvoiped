@@ -119,7 +119,7 @@ const modeText = body.querySelector(".mode-text");
 // Load saved mode from localStorage
 if (localStorage.getItem("dark") === "true") {
     body.classList.add("dark");
-    modeText.innerText = "Light mode";
+    modeText.innerHTML = `<i class="fa fa-sun"></i> Light Mode`;
   }
   
   modeSwitch.addEventListener("click", () => {
@@ -130,20 +130,12 @@ if (localStorage.getItem("dark") === "true") {
     
     // Update mode text based on current mode
     if (body.classList.contains("dark")) {
-      modeText.innerText = "Light mode";
+      modeText.innerHTML = `<i class="fa fa-sun"></i> Light Mode`;
 
     } else {
-      modeText.innerText = "Dark mode";
+      modeText.innerHTML = `<i class="fa fa-moon"></i> Dark Mode`;
     }
   });
   
     
   // Dark mode ends here
-  
-//   images change on dark mode
-
-// if(body.classList.contains("dark")){
-//     document.querySelector('.hero-header').style.background = 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoEVBFq1KKipdESch7upv4JPk4PqgHjvoR88Z4Bps&s), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoEVBFq1KKipdESch7upv4JPk4PqgHjvoR88Z4Bps&s)'
-// } else{
-//     document.querySelector('.hero-header').style.background = " url(../img/bg-dot.png), url(../img/bg-dot.png), url(../img/bg-round.png), url(../img/bg-tree.png), url(../img/bg-bottom-hero.png);"
-// }
