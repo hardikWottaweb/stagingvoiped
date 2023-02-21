@@ -6751,6 +6751,10 @@ fieldset:disabled .btn {
     }
 }
 
+.spinner{
+    background: var(--light);
+}
+
 .spinner-border {
     display: inline-block;
     width: 2rem;
