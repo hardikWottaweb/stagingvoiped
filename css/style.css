@@ -340,7 +340,7 @@ h6,
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--light);
+    color: #fff;
     background: url(../img/icon-shape-primary.png) center center no-repeat;
     transition: .5s;
 }
