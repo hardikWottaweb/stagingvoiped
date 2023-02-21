@@ -4752,7 +4752,7 @@ fieldset:disabled .btn {
 }
 
 .navbar-light .navbar-toggler {
-    color: rgba(0, 0, 0, 0.55);
+    color: var(--dark);
     border-color: rgba(0, 0, 0, 0.1)
 }
 
@@ -4798,8 +4798,8 @@ fieldset:disabled .btn {
 }
 
 .navbar-dark .navbar-toggler {
-    color: rgba(255, 255, 255, 0.55);
-    border-color: rgba(255, 255, 255, 0.1)
+    color: rgba(255, 255, 255, 0);
+    border-color: rgba(0, 0, 0, 0.1)
 }
 
 .navbar-dark .navbar-toggler-icon {

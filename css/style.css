@@ -4,17 +4,31 @@
     --secondary: rgb(250, 201, 201);
     --light: #fff;
     --dark: #271d1d;
-    --nav: #f1d4d4;
+    --nav: #333;
     --gradient: #fff;
+    --image-background: url(../img/bg-dot.png),
+                        url(../img/bg-dot.png),
+                        url(../img/bg-round.png),
+                        url(../img/bg-tree.png),
+                        url(../img/bg-bottom-hero.png);
+    --footer-image: url(../img/footer.png)
+
 }
 
 body.dark {
     --secondary: #fff;
     --light: #1D1D27 !important;
     --dark: #f4f4f4;
-    --nav: #888;
+    --nav: #fff;
     --filter: grayscale(100%);
     --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --image-background: url(../img/bg-dot.png),
+                        url(../img/bg-dot.png),
+                        url(../img/bg-round.png),
+                        url(../img/bg-tree-dark.png),
+                        url(../img/bg-bottom-hero-dark.png);
+    --footer-image: url(../img/footer-dark.png)
+
 }
 
 
@@ -159,7 +173,8 @@ h6,
 
 .navbar-brand{
     background: var(--light);
-    border-radius: 15px 50px 30px
+    border-radius: 15px 50px;
+    transition: 2s ease-in;
 }
 
 
@@ -234,12 +249,7 @@ h6,
 
 /*** Hero Header ***/
 .hero-header {
-    background:
-        url(../img/bg-dot.png),
-        url(../img/bg-dot.png),
-        url(../img/bg-round.png),
-        url(../img/bg-tree.png),
-        url(../img/bg-bottom-hero.png);
+    background: var(--image-background);
     background-position:
         10px 10px,
         bottom 190px right 10px,
@@ -533,7 +543,7 @@ h6,
 
 /*** Footer ***/
 .footer {
-    background: url(../img/footer.png) center center no-repeat;
+    background: var(--footer-image) center center no-repeat;
     background-size: contain;
 }
 
