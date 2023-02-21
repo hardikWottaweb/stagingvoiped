@@ -112,29 +112,31 @@
 const body = document.querySelector('.main-body')
 
 const modeSwitch = body.querySelector(".toggle-switch")
+const modeText = body.querySelector(".mode-text");
+
 
 
 // Load saved mode from localStorage
 if (localStorage.getItem("dark") === "true") {
     body.classList.add("dark");
-    // modeText.innerText = "Light mode";
+    modeText.innerText = "Light mode";
   }
   
   modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
-    console.log('clicked')
     
     // Save current mode to localStorage
     localStorage.setItem("dark", body.classList.contains("dark"));
     
     // Update mode text based on current mode
-    // if (body.classList.contains("dark")) {
-    //   modeText.innerText = "Light mode";
-    // } else {
-    //   modeText.innerText = "Dark mode";
-    // }
+    if (body.classList.contains("dark")) {
+      modeText.innerText = "Light mode";
+    } else {
+      modeText.innerText = "Dark mode";
+    }
   });
   
+    
   // Dark mode ends here
   
   

@@ -9,7 +9,7 @@
 
 body.dark {
     --secondary: #fff;
-    --light: #212124 !important;
+    --light: #1D1D27 !important;
     --dark: #f4f4f4;
     --nav: #888;
     --filter: grayscale(100%)
@@ -20,10 +20,32 @@ body.dark {
 /* switch mode */
 
 
+.toggle-switch{
+    border: 1px solid var(--primary);
+    background: var(--light);
+    height: 40px;
+    width: 120px;
+    border-radius: 20px;
+}
 
+.toggle-switch h3{
+    color: var(--dark);
 
+    font-size: 15px;
+    margin-bottom: -2px;
+}
+
+.toggle-switch:hover{
+    border-radius: 15px 50px;
+    transition: 0.2s ease-in;
+}
 
 /* ends here */
+
+/* New buttons */
+
+
+/* new btns ends here */
 
 /*** Spinner ***/
 #spinner {
@@ -365,6 +387,9 @@ h6,
     width: 100%;
     background: var(--light);
 }
+
+/* btn 2 */
+
 
 
 /*** Testimonial ***/
