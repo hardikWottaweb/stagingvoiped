@@ -612,6 +612,7 @@ progress {
     height: auto
 }
 
+
 .img-thumbnail {
     padding: .25rem;
     background-color: #F3F6FF;
@@ -4752,7 +4753,7 @@ fieldset:disabled .btn {
 }
 
 .navbar-light .navbar-toggler {
-    color: var(--dark);
+    color: var(--);
     border-color: rgba(0, 0, 0, 0.1)
 }
 
@@ -12539,5 +12540,12 @@ fieldset:disabled .btn {
 
     .d-print-none {
         display: none !important
+    }
+}
+
+
+@media(max-width: 800px){
+    .team-img{
+        width: 100px !important;
     }
 }
