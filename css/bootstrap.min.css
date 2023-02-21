@@ -93,7 +93,7 @@ h1,
 }
 
 h5{
-    color: #000;
+    color: var(--dark);
 }
 
 @media (min-width: 1200px) {
