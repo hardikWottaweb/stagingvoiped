@@ -5,6 +5,7 @@
     --light: #fff;
     --dark: #271d1d;
     --nav: #f1d4d4;
+    --gradient: #fff;
 }
 
 body.dark {
@@ -12,7 +13,8 @@ body.dark {
     --light: #1D1D27 !important;
     --dark: #f4f4f4;
     --nav: #888;
-    --filter: grayscale(100%)
+    --filter: grayscale(100%);
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
 
 
@@ -322,8 +324,8 @@ h6,
     position: relative;
     height: 350px;
     padding: 30px 25px;
-    background: #FFFFFF;
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    background: var(--gradient);
+    box-shadow: 1px 3px 45px rgba(0, 0, 0, .2);
     transition: .5s;
 }
 
