@@ -67,6 +67,7 @@ hr:not([size]) {
     height: 1px
 }
 
+small,
 h1,
 .h1,
 h2,
@@ -93,7 +94,7 @@ h1,
 }
 
 h5{
-    color: var(--dark);
+    color: var(--dark) !important;
 }
 
 @media (min-width: 1200px) {
