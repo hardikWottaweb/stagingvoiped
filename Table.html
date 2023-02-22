@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-primary cdr-table">
+                        <table class="table table-striped cdr-table table-bordered table-responsive" id="operator-details">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        OP_Code
+                                    </th>
+                                    <th>
+                                        Egress Adjacency
+                                    </th>
+                                    <th>
+                                        Session Time (min)
+                                    </th>
+                                    <th width="79">
+                                        Total Calls
+                                    </th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in Model.all_cdrs_list.
+                                Where(x => x.operator_name != null).
+                                GroupBy(x => new { x.operator_name, x.egress_adjacency }).
+                                Select(y => new
+                                {
+                                    operator_name = y.Key.operator_name,
+                                    duration = y.Sum(x => Convert.ToDecimal((Convert.ToDateTime(x.disconnect_time_local) - Convert.ToDateTime(x.connect_time_local)).TotalSeconds)),
+                                    total_calls = y.Count(),
+                                    egress_adjacency = y.Key.egress_adjacency
+                                }))
+
+                                {
+
+
+                                    <tr style="background-color:white;">
+                                        <td>
+                                            <a class="open-generic-modal text-semibold" url="/CRUD/GetOPInfo?op_code=@item.operator_name" mdtitle="Pricing and Routing info for <b>@item.operator_name</b>">@item.operator_name</a>
+                                        </td>
+                                        <td> <span class="text-semibold filtercdrs text-primary" style="cursor:pointer" value="@item.egress_adjacency"> @item.egress_adjacency</span></td>
+                                        <td data-sort="@item.duration">
+                                            @dhelper.ConvertToMMssFormat(Convert.ToInt32(item.duration))
+                                        </td>
+                                        <td>
+                                            @item.total_calls
+                                        </td>
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                            <tfoot style="background:gainsboro; font-size:14px">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>@dhelper.ConvertToMMssFormat(Convert.ToInt32(nldStats.Select(x => Convert.ToDecimal((Convert.ToDateTime(x.disconnect_time_local) - Convert.ToDateTime(x.connect_time_local)).TotalSeconds)).Sum()))</th>
+                                    <th>@nldStats.Count</th>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered" id="operator-details" >
+        <thead>
+            <tr>
+                <th scope="col">
+                    OP_Code
+                </th>
+                <th scope="col">
+                    Egress Adjacency
+                </th>
+                <th scope="col">
+                    Session Time (min)
+                </th>
+                <th scope="col">
+                    Total Calls
+                </th>
+
+            </tr>
+        </thead>
+        <tbody >
+          <tr>
+            @foreach (var item in Model.all_cdrs_list.
+            Where(x => x.cli_operator_name != null).
+            GroupBy(x => new { x.cli_operator_name, x.ingress_adjacency }).
+            Select(y => new
+            {
+                cli_operator_name = y.Key.cli_operator_name,
+                duration = y.Sum(x => Convert.ToDecimal((Convert.ToDateTime(x.disconnect_time_local) - Convert.ToDateTime(x.connect_time_local)).TotalSeconds)),
+                total_calls = y.Count(),
+                ingress_adjacency = y.Key.ingress_adjacency
+            }))
+
+            {
+
+
+                <tr style="background-color:white;">
+                    <td>
+                        <a class="text-semibold">@item.cli_operator_name</a>
+                    </td>
+                    <td> <span class="text-semibold"> @item.ingress_adjacency</span></td>
+                    <td data-sort="@item.duration">
+                        @dhelper.ConvertToMMssFormat(Convert.ToInt32(item.duration))
+                    </td>
+                    <td>
+                        @item.total_calls
+                    </td>
+
+                </tr>
+
+            }
+
+          </tr>
+        </tbody>
+        <tfoot style="background:gainsboro; font-size:14px">
+            <tr>
+                <th></th>
+                <th></th>
+                <th>@dhelper.ConvertToMMssFormat(Convert.ToInt32(nldStats.Select(x => Convert.ToDecimal((Convert.ToDateTime(x.disconnect_time_local) - Convert.ToDateTime(x.connect_time_local)).TotalSeconds)).Sum()))</th>
+                <th>@nldStats.Count</th>
+            </tr>
+        </tfoot>
+
+      </table>
+</body>
+</html>

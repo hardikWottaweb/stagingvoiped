@@ -263,6 +263,7 @@ h6,
         left 55% top -1px,
         left 45% bottom -1px,
         center bottom -1px;
+        background-size: 10% auto, 10% auto, 10% auto, 10% auto, contain;
     background-repeat: no-repeat;
 }
 
